@@ -8,3 +8,9 @@ describe('random math app', () => {
         .findByTestId('total')
     })
   })
+
+
+
+
+
+  

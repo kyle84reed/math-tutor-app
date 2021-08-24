@@ -1,0 +1,57 @@
+Scenario: User navigates to the Math Tutor App    
+    Given Math Tutor loads in the browser
+     When the page loads
+      Then the Math Challenge title should be visible
+      Then the subtitle 'Addition' should be visibble
+      Then the two random numbers should be stacked with a visable + sign
+      Then the horizontal line below the two numbers should be visible
+      Then the 'Answer' field should be below the numbers and be clickable
+      Then the 'Answer' button should be located at the bottom white box
+      The 'Answer' button should not be clickable
+      Then hovering over the 'Answer' button should show a box mentioning 'Please provide an answer'
+
+
+Scenario: User enters special characters and clicks the Answer button
+    Given Math Tutor loads in the browser
+     When the user inputs special characters into the 'Answer' field
+      And trys to click on the 'Answer' button
+      Then the 'Answer' button is greyed out and not clickable
+     
+
+Scenario: User enters only letters and clicks the Answer button  
+    Given Math Tutor loads in the browser
+     When the user inputs letter characters into the 'Answer' field
+      And trys to click on the 'Answer' button
+      Then the 'Answer' button is greyed out and not clickable
+
+
+Scenario: User enters a big number and clicks the Answer button
+    Given Math Tutor loads in the browser
+     When the user inputs 200 numbers into the 'Answer' field
+      Then the 'Answer' button changes to blue and becomes clickable
+      Then click on the 'Answer' button
+      Then a red banner at the top right of the page shows and states "Sorry, that is not correct. Please try again"
+      Then the page does not reload and the user can try a new answer
+
+
+Scenario: User leaves the Answer field blank and clicks the Answer button
+    Given Math Tutor loads in the browser
+     When the user does not input any characters into the 'Answer' field
+      And trys to click on the 'Answer' button
+      Then the 'Answer' button is greyed out and not clickable
+
+
+Scenario: User enters an incorrect answer and clicks the Answer button.
+    Given Math Tutor loads in the browser
+     When the user inputs an incorrect answer into the 'Answer' field
+      Then the 'Answer' button changes to blue and becomes clickable
+      Then click on the 'Answer' button
+      Then a red banner at the top right of the page shows and states "Sorry, that is not correct. Please try again"
+      Then the page does not reload and the user can try a new answer
+
+
+Scenario: User enters the correct answer and clicks the Answer button.
+    Given Math Tutor loads in the browser
+     When the user inputs the correct answer into the 'Answer' field
+      Then a green banner with a checkmark appears in the top right corner stating "That's right! Try another one"
+      Then the banner disappera and the page reloads with new numbers
